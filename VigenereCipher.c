@@ -1,6 +1,3 @@
-// 정보보호개론 Assignment #1
-// 2015318646 이수연
-
 #include <stdio.h>
 #include <string.h>
 
@@ -19,7 +16,7 @@ int main(void) {
 
 	memset(cipher_text, 0, 5100);
 
-	fpIn = fopen("hw1_input.txt", "r");
+	fpIn = fopen("input.txt", "r");
 	for(i = 0; fscanf(fpIn, "%c", &ch) != EOF; ++i) {
 		cipher_text[i] = ch;
 	}
@@ -39,7 +36,7 @@ void decrypt_text(void) {
 	FILE *fpOut;
 	int i;
 
-	fpOut = fopen("hw1_output.txt", "w");
+	fpOut = fopen("output.txt", "w");
 
 	for(i = 0; i < KEY_LENGTH; i++) {
 		fprintf(fpOut, "0x%02x ", key[i]);
@@ -115,7 +112,7 @@ int find_key_sequence(void) {
 }
 
 float get_chi_square(int mod, unsigned char value) {
-	float expected_frq[26] = {0.08167, 0.01492, 0.02782, 0.04253, 0.12702, 0.02228, 0.02015, 
+	float expected_frq[26] = {0.08167, 0.01492, 0.02782, 0.04253, 0.12702, 0.02228, 0.02015,	// plain text english frequencies 
 		0.06094, 0.06966, 0.00153, 0.00772, 0.04025, 0.02406, 0.06749, 0.07507, 0.01929, 0.00095, 
 		0.05987, 0.06327, 0.09056, 0.02758, 0.00978, 0.02360, 0.00150, 0.01974, 0.00074};
 	int i, cnt = 0, frequency[256];
